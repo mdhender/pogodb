@@ -1,0 +1,11 @@
+*.adoc                    text eol=lf
+*.go                      text eol=lf
+*.lex                     text eof=lf
+*.md                      text eol=lf
+*.sh                      text eol=lf
+*.sql                     text eol=lf
+*.txt                     text eol=lf
+.gitattributes            text eol=lf
+.gitignore                text eol=lf
+Dockerfile                text eol=lf
+LICENSE                   text eol=lf
