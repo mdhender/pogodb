@@ -81,7 +81,7 @@ func Identifier(b []byte) (lexeme, rest []byte) {
 		return nil, saved
 	}
 	lexeme, b = append(lexeme, b[:w]...), b[w:]
-	for r, w = utf8.DecodeRune(b); unicode.IsLetter(r) || unicode.IsDigit(r) || r == '_';  {
+	for r, w = utf8.DecodeRune(b); unicode.IsLetter(r) || unicode.IsDigit(r) || r == '_'; {
 		lexeme, b = append(lexeme, b[:w]...), b[w:]
 	}
 	return lexeme, b

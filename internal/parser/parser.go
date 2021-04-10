@@ -25,12 +25,11 @@
 package parser
 
 import (
-	"github.com/mdhender/pogodb/internal/scanner"
 	"unicode"
 	"unicode/utf8"
 )
 
-type PARSER struct {}
+type PARSER struct{}
 
 type Statement struct {
 	Select *SELECT
@@ -43,34 +42,34 @@ type EXPRESSION struct {
 	Identifier string
 }
 type SELECT struct {
-	Distinct bool
+	Distinct   bool
 	SelectList *SELECTLIST
-	From *TABLEREFERENCELIST
-	Where *SEARCHCONDITION
+	From       *TABLEREFERENCELIST
+	Where      *SEARCHCONDITION
 }
-type SEARCHCONDITION struct {}
-type SELECTCOLUMN struct{
+type SEARCHCONDITION struct{}
+type SELECTCOLUMN struct {
 	Expression *EXPRESSION
-	Alias *COLUMNALIAS
+	Alias      *COLUMNALIAS
 }
-type SELECTLIST struct{
+type SELECTLIST struct {
 	Columns []*SELECTCOLUMN
 }
-type TABLEREFERENCELIST struct {}
+type TABLEREFERENCELIST struct{}
 
-func skipSpaces(b []byte) []byte {
-	for !scanner.Eof(b) {
-		if lexeme, rest := scanner.Spaces(b); lexeme != nil {
-			b = rest
-		}
-		if lexeme, rest := scanner.Comment(b); lexeme != nil {
-			b = rest
-			continue
-		}
-		break
-	}
-	return b
-}
+//func skipSpaces(b []byte) []byte {
+//	for !scanner.Eof(b) {
+//		if lexeme, rest := scanner.Spaces(b); lexeme != nil {
+//			b = rest
+//		}
+//		if lexeme, rest := scanner.Comment(b); lexeme != nil {
+//			b = rest
+//			continue
+//		}
+//		break
+//	}
+//	return b
+//}
 
 func bdup(src []byte) []byte {
 	dst := make([]byte, len(src))
